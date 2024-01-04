@@ -1,6 +1,7 @@
 package entity;
 
-public class User {
+
+public class User implements Comparable<User> {
     private int id;
     private String firstName;
     private String secondName;
@@ -20,6 +21,7 @@ public class User {
         this.hometown = hometown;
         this.jobName = jobName;
     }
+
 
     @Override
     public String toString() {
@@ -81,4 +83,8 @@ public class User {
         this.jobName = jobName;
     }
 
+    @Override
+    public int compareTo(User anotherUser) {
+        return this.id - anotherUser.id;
+    }
 }
