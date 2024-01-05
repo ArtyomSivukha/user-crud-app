@@ -7,6 +7,11 @@ import java.util.Scanner;
 
 public class Menu {
 
+    private final String INPUT_ID_MESSAGE = "Введите айди";
+    private final String INPUT_ANY_NUMBER_MESSAGE = "Введите любое число";
+    private final String INPUT_VALUE_RANGE_FROM_1_TO_6_MESSAGE = "Введите значение в диапозоне 1-6";
+    private final String INPUT_NUMBER_MESSAGE = "Введите число!";
+
     private void showMenu() {
         System.out.println("\t\nМеню\n" +
                 "1.\tПросмотреть список всех пользователей\n" +
@@ -19,7 +24,7 @@ public class Menu {
     }
 
     private void showContextDeleteMenu() {
-        System.out.println("Введите айди");
+        System.out.println(INPUT_ID_MESSAGE);
     }
 
     public void chooseOption() {
@@ -35,7 +40,7 @@ public class Menu {
                         System.out.println(userController.getUsers());
                         break;
                     case 2:
-                        System.out.println(userController.addUser());
+                        System.out.println(userController.addOne());
                         break;
                     case 3:
                         showContextDeleteMenu();
@@ -51,10 +56,10 @@ public class Menu {
                         System.exit(1);
                         break;
                     default:
-                        System.out.println("Введите значение в диапозоне 1-5");
+                        System.out.println(INPUT_VALUE_RANGE_FROM_1_TO_6_MESSAGE);
                 }
 
-                System.out.println("Введите любое число");
+                System.out.println(INPUT_ANY_NUMBER_MESSAGE);
                 scanner.nextInt();
                 System.out.println("\n\n\n\n\n\n");
                 System.out.println("\n\n\n\n\n\n");
@@ -62,11 +67,8 @@ public class Menu {
 
             } catch (InputMismatchException e) {
                 scanner.next();
-                System.out.println("Введите число!");
+                System.out.println(INPUT_NUMBER_MESSAGE);
             }
-
         }
-
-
     }
 }
